@@ -1,11 +1,7 @@
-const HomePage = () => {
-  return (
-    <main>
-      <section>
+import { Home } from '../pages/home';
 
-      </section>
-    </main>
-  );
+const HomePage = () => {
+  return <Home />;
 };
 
 export default HomePage;
