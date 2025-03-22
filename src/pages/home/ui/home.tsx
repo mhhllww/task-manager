@@ -1,9 +1,10 @@
-import { HeroSection } from './hero-section.tsx';
+import { FeaturesSection, HeroSection } from './home-sections';
 
 export const Home = () => {
   return (
-    <main className={'md:p-[192px_145px] flex justify-center'}>
+    <main className={'flex flex-col items-center'}>
       <HeroSection />
+      <FeaturesSection />
     </main>
   );
 };

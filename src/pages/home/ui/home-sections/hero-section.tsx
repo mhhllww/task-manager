@@ -1,10 +1,10 @@
 import { CheckCircle, ChevronRight } from 'lucide-react';
 
-import { RoundedButton } from '../../../shared/ui';
+import { RoundedButton } from '../../../../shared/ui';
 
 export const HeroSection = () => {
   return (
-    <section className={'flex items-center gap-50'}>
+    <section className={'md:p-[192px_145px] flex items-center gap-50'}>
       <article className={'flex flex-col gap-[10px]'}>
         <h1 className={'text-[60px] font-bold tracking-tighter leading-16'}>
           Manage Tasks Effortlessly, Boost Productivity
