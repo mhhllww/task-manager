@@ -1,4 +1,5 @@
 import {
+  FaqSection,
   FeaturesSection,
   HeroSection,
   HowItWorkSection,
@@ -10,6 +11,7 @@ export const Home = () => {
       <HeroSection />
       <FeaturesSection />
       <HowItWorkSection />
+      <FaqSection />
     </main>
   );
 };

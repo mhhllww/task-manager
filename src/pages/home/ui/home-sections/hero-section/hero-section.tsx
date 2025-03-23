@@ -10,7 +10,7 @@ export const HeroSection = () => {
           Manage Tasks Effortlessly, Boost Productivity
         </h1>
         <p className={'text-gray-500 text-[20px]'}>
-          TaskTracker helps teams organize, track, and complete work
+          TaskManager helps teams organize, track, and complete work
           efficiently. Streamline your workflow and never miss a deadline again.
         </p>
         <nav className={'flex gap-[10px] font-semibold text-[14px]'}>
