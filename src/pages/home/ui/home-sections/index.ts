@@ -1,2 +1,2 @@
-export { HeroSection } from './hero-section.tsx';
-export { FeaturesSection } from './features-section.tsx';
+export { HeroSection } from './hero-section/hero-section.tsx';
+export { FeaturesSection } from './features-section/features-section.tsx';

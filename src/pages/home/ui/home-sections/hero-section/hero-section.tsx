@@ -1,6 +1,6 @@
 import { CheckCircle, ChevronRight } from 'lucide-react';
 
-import { RoundedButton } from '../../../../shared/ui';
+import { RoundedButton } from '../../../../../shared/ui';
 
 export const HeroSection = () => {
   return (
