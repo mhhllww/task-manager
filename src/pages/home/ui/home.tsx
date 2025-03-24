@@ -1,4 +1,5 @@
 import {
+  CtaSection,
   FaqSection,
   FeaturesSection,
   HeroSection,
@@ -12,6 +13,7 @@ export const Home = () => {
       <FeaturesSection />
       <HowItWorkSection />
       <FaqSection />
+      <CtaSection />
     </main>
   );
 };
