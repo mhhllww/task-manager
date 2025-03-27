@@ -1,4 +1,5 @@
-import { RoundedButton, TextInput } from '@/shared/ui';
+import { Button } from '@/shared/ui/button.tsx';
+import { Input } from '@/shared/ui/input.tsx';
 
 export const CtaSection = () => {
   return (
@@ -13,13 +14,8 @@ export const CtaSection = () => {
         </p>
       </article>
       <form className={'mx-auto mt-[16px] flex gap-2'}>
-        <TextInput label={'Enter your email'} />
-        <RoundedButton
-          text={'Get Started'}
-          onClick={() => {}}
-          btnSize={'small'}
-          btnType={'black'}
-        />
+        <Input type={'email'} placeholder={'Email'} />
+        <Button>Get Started</Button>
       </form>
       <p className={'mt-1 text-[12px] text-gray-500'}>
         Get started for free.{' '}

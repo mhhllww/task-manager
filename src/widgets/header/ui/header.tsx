@@ -1,4 +1,5 @@
-import { Logo, RoundedButton, UnderlineLink } from '@/shared/ui';
+import { Logo } from '@/shared/ui';
+import { Button } from '@/shared/ui/button.tsx';
 
 export const Header = () => {
   return (
@@ -12,18 +13,13 @@ export const Header = () => {
         }>
         <Logo />
         <article className={'flex gap-[50px]'}>
-          <UnderlineLink text={'Features'} />
-          <UnderlineLink text={'How It Works'} />
-          <UnderlineLink text={'FAQ'} />
+          <Button variant={'link'}>Features</Button>
+          <Button variant={'link'}>How It Works</Button>
+          <Button variant={'link'}>FAQ</Button>
         </article>
         <article className={'flex items-center gap-[50px]'}>
-          <UnderlineLink text={'Log In'} />
-          <RoundedButton
-            text={'Get Started'}
-            onClick={() => {}}
-            btnType={'black'}
-            btnSize={'small'}
-          />
+          <Button variant={'link'}>Log In</Button>
+          <Button>Get Started</Button>
         </article>
       </nav>
     </header>

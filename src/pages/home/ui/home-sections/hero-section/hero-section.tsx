@@ -1,6 +1,6 @@
 import { CheckCircle, ChevronRight } from 'lucide-react';
 
-import { RoundedButton } from '@/shared/ui';
+import { Button } from '@/shared/ui/button.tsx';
 
 export const HeroSection = () => {
   return (
@@ -14,19 +14,11 @@ export const HeroSection = () => {
           efficiently. Streamline your workflow and never miss a deadline again.
         </p>
         <nav className={'flex gap-[10px] font-semibold text-[14px]'}>
-          <RoundedButton
-            text={'Get Started for Free'}
-            onClick={() => {}}
-            btnType={'black'}
-            btnSize={'medium'}
-          />
-          <RoundedButton
-            text={`See How It Works`}
-            onClick={() => {}}
-            btnType={'white'}
-            btnSize={'medium'}
-            icon={<ChevronRight className='ml-1 h-4 w-4' />}
-          />
+          <Button>Get Started for Free</Button>
+          <Button variant={'outline'}>
+            See How It Works
+            <ChevronRight className='ml-1 h-4 w-4' />
+          </Button>
         </nav>
         <div className={'flex items-center gap-[8px] text-[14px]'}>
           <CheckCircle className='h-4 w-4 text-primary' />

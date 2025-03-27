@@ -1,11 +1,11 @@
-import { ProductInfo } from './ui/product-info';
+import { FooterSection } from './ui';
 
 export const Footer = () => {
   return (
     <footer>
       <div></div>
       <article>
-        <ProductInfo />
+        <FooterSection />
       </article>
     </footer>
   );
