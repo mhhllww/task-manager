@@ -1,4 +1,4 @@
-import { RoundedButton, TextInput } from '../../../../../shared/ui';
+import { RoundedButton, TextInput } from '@/shared/ui';
 
 export const CtaSection = () => {
   return (

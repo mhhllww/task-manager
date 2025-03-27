@@ -1,4 +1,4 @@
-import { RoundedSpan } from '../../../../../shared/ui';
+import { RoundedSpan } from '@/shared/ui';
 
 import { List } from './list.tsx';
 

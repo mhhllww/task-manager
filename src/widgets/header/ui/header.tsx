@@ -1,4 +1,4 @@
-import { Logo, RoundedButton, UnderlineLink } from '../../../shared/ui';
+import { Logo, RoundedButton, UnderlineLink } from '@/shared/ui';
 
 export const Header = () => {
   return (

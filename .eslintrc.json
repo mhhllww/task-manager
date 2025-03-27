@@ -4,8 +4,7 @@
     "plugin:prettier/recommended",
     "plugin:@typescript-eslint/recommended",
     "@feature-sliced/eslint-config/rules/import-order",
-    "@feature-sliced/eslint-config/rules/layers-slices",
-    "@feature-sliced/eslint-config/rules/public-api/lite"
+    "@feature-sliced/eslint-config/rules/layers-slices"
   ],
   "plugins": [
     "@typescript-eslint"
