@@ -7,9 +7,9 @@ import {
   Users,
 } from 'lucide-react';
 
-import { RoundedSpan } from '@/shared/ui';
+import { RoundedSpan } from '@/shared/ui/rounded-span';
 
-import { FeatureCard } from './feature-card.tsx';
+import { FeatureCard } from './feature-card';
 
 const cards = [
   {

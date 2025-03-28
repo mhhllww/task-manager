@@ -1,6 +1,6 @@
 import { CheckCircle, ChevronRight } from 'lucide-react';
 
-import { Button } from '@/shared/ui/button.tsx';
+import { Button } from '@/shared/ui/button';
 
 export const HeroSection = () => {
   return (

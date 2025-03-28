@@ -1,1 +1,1 @@
-export { CtaSection } from './cta-section.tsx';
+export { CtaSection } from './cta-section';

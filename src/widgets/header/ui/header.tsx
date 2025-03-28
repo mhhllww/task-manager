@@ -1,5 +1,5 @@
-import { Logo } from '@/shared/ui';
-import { Button } from '@/shared/ui/button.tsx';
+import { Button } from '@/shared/ui/button';
+import { Logo } from '@/shared/ui/logo';
 
 export const Header = () => {
   return (

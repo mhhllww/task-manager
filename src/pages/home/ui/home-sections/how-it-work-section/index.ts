@@ -1,1 +1,1 @@
-export { HowItWorkSection } from './how-it-work-section.tsx';
+export { HowItWorkSection } from './how-it-work-section';

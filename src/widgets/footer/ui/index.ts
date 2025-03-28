@@ -1,1 +1,1 @@
-export { FooterSection } from './footer-section.tsx';
+export { FooterSection } from './footer-section';

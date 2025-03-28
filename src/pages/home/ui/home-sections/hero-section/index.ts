@@ -1,1 +1,1 @@
-export { HeroSection } from './hero-section.tsx';
+export { HeroSection } from './hero-section';

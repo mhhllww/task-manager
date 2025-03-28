@@ -1,5 +1,5 @@
-import { Button } from '@/shared/ui/button.tsx';
-import { Input } from '@/shared/ui/input.tsx';
+import { Button } from '@/shared/ui/button';
+import { Input } from '@/shared/ui/input';
 
 export const CtaSection = () => {
   return (

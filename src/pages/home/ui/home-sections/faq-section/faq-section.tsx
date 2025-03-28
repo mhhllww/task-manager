@@ -1,6 +1,6 @@
-import { RoundedSpan } from '@/shared/ui';
+import { RoundedSpan } from '@/shared/ui/rounded-span';
 
-import { QuestionList } from './question-list.tsx';
+import { QuestionList } from './question-list';
 
 export const FaqSection = () => {
   return (

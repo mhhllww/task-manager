@@ -1,1 +1,1 @@
-export { FeaturesSection } from './features-section.tsx';
+export { FeaturesSection } from './features-section';

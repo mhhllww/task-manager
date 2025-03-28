@@ -1,1 +1,1 @@
-export { FaqSection } from './faq-section.tsx';
+export { FaqSection } from './faq-section';
