@@ -26,7 +26,7 @@ export const HeroSection = () => {
         </div>
       </article>
       <img
-        src={'public/hero-section.png'}
+        src={'/hero-section.png'}
         alt=''
         className={'w-[50%] object-cover rounded-3xl'}
       />

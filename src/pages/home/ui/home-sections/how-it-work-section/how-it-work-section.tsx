@@ -18,7 +18,7 @@ export const HowItWorkSection = () => {
       <article
         className={'flex justify-center items-center gap-6 mx-auto py-[48px]'}>
         <img
-          src={'public/how-it-work-section.png'}
+          src={'/how-it-work-section.png'}
           alt=''
           className={'w-[40%] object-cover rounded-3xl'}
         />
