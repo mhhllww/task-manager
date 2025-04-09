@@ -3,6 +3,13 @@ import { CheckCircle, ChevronRight } from 'lucide-react';
 import { Button } from '@/shared/ui/button';
 
 export const HeroSection = () => {
+  const HIWClick = () => {
+    const element = document.getElementById('how-it-work');
+    element?.scrollIntoView({
+      behavior: 'smooth',
+    });
+  };
+
   return (
     <section className={'md:p-[192px_145px] flex items-center gap-50'}>
       <article className={'flex flex-col gap-[10px]'}>
@@ -15,7 +22,7 @@ export const HeroSection = () => {
         </p>
         <nav className={'flex gap-[10px] font-semibold text-[14px]'}>
           <Button>Get Started for Free</Button>
-          <Button variant={'outline'}>
+          <Button onClick={() => HIWClick()} variant={'outline'}>
             See How It Works
             <ChevronRight className='ml-1 h-4 w-4' />
           </Button>

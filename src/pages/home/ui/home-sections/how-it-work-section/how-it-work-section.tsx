@@ -4,7 +4,7 @@ import { List } from './list';
 
 export const HowItWorkSection = () => {
   return (
-    <section className={'p-[128px_145px] w-full bg-white'}>
+    <section id={'how-it-work'} className={'p-[128px_145px] w-full bg-white'}>
       <article className={'flex flex-col items-center gap-[8px] text-center'}>
         <RoundedSpan text={'How It Works'} />
         <h1 className={'text-[36px] font-bold tracking-tighter'}>

@@ -4,7 +4,9 @@ import { QuestionList } from './question-list';
 
 export const FaqSection = () => {
   return (
-    <section className={'p-[128px_145px] w-full bg-gray-100 flex flex-col'}>
+    <section
+      id={'faq'}
+      className={'p-[128px_145px] w-full bg-gray-100 flex flex-col'}>
       <article className={'flex flex-col items-center gap-[8px] text-center'}>
         <RoundedSpan text={'FAQ'} />
         <h1 className={'text-[36px] font-bold tracking-tighter'}>
