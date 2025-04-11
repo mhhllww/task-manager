@@ -1,7 +1,16 @@
-import { Login } from '@/pages/auth';
+import { useLocation } from 'react-router-dom';
 
-const Page = () => {
-  return <Login />;
+import { Login, Register } from '@/pages/auth';
+
+const AuthPage = () => {
+  const location = useLocation();
+
+  return (
+    <>
+      {location.pathname === '/login' && <Login />}
+      {location.pathname === '/register' && <Register />}
+    </>
+  );
 };
 
-export default Page;
+export default AuthPage;

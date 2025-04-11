@@ -1,10 +1,10 @@
-import { LoginForm } from './form';
+import { LoginForm } from '@/pages/auth';
 
-export const Login = () => {
+export const Register = () => {
   return (
     <main
       className={'h-[100vh] flex flex-col items-center justify-center px-5'}>
-      <LoginForm action={'login'} />
+      <LoginForm action={'register'} />
     </main>
   );
 };

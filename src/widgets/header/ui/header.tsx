@@ -62,9 +62,11 @@ export const Header = () => {
             </Link>
           )}
           {user ? (
-            <Button onClick={handleLogout}>Logout</Button>
+            <Button onClick={handleLogout}>Log Out</Button>
           ) : (
-            <Button>Get Started</Button>
+            <Link to='/register'>
+              <Button>Get Started</Button>
+            </Link>
           )}
         </article>
       </nav>

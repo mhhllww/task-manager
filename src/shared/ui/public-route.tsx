@@ -7,7 +7,7 @@ export const PublicRoute = ({ children }: { children: JSX.Element }) => {
   const { user, loading } = useAuth();
 
   if (loading) return <div>Загрузка...</div>;
-  if (user) return <Navigate to='/' />; // уже вошел — перенаправляем
+  if (user) return <Navigate to='/' />;
 
   return children;
 };

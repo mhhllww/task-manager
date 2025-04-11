@@ -1,6 +1,7 @@
 import { Button } from '@/shared/ui/button';
 import { Input } from '@/shared/ui/input';
 
+// TODO: FORM WITH REDIRECT TO REGISTRATION
 export const CtaSection = () => {
   return (
     <section className={'w-full py-12 flex flex-col items-center'}>
@@ -14,8 +15,8 @@ export const CtaSection = () => {
         </p>
       </article>
       <form className={'mx-auto mt-[16px] flex gap-2'}>
-        <Input type={'email'} placeholder={'Email'} />
-        <Button>Get Started</Button>
+        <Input type={'email'} placeholder='m@example.com' required />
+        <Button type={'submit'}>Get Started</Button>
       </form>
       <p className={'mt-1 text-[12px] text-gray-500'}>
         Get started for free.{' '}

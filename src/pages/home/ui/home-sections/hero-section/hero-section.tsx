@@ -1,4 +1,5 @@
 import { CheckCircle, ChevronRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 import { Button } from '@/shared/ui/button';
 
@@ -21,7 +22,9 @@ export const HeroSection = () => {
           efficiently. Streamline your workflow and never miss a deadline again.
         </p>
         <nav className={'flex gap-[10px] font-semibold text-[14px]'}>
-          <Button>Get Started for Free</Button>
+          <Link to='/register'>
+            <Button>Get Started for Free</Button>
+          </Link>
           <Button onClick={() => HIWClick()} variant={'outline'}>
             See How It Works
             <ChevronRight className='ml-1 h-4 w-4' />

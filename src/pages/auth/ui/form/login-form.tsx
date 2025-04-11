@@ -1,5 +1,6 @@
 import { GalleryVerticalEnd } from 'lucide-react';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import {
   loginUser,
@@ -12,13 +13,14 @@ import { Button } from '@/shared/ui/button.tsx';
 import { Input } from '@/shared/ui/input.tsx';
 import { Label } from '@/shared/ui/label.tsx';
 
-export function LoginForm({
-  className,
-  ...props
-}: React.ComponentPropsWithoutRef<'div'>) {
+type LoginFormProps = {
+  action: 'login' | 'register' | 'register-with-email';
+  className?: React.ComponentPropsWithoutRef<'div'>;
+};
+
+export function LoginForm({ action, className, ...props }: LoginFormProps) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [action, setAction] = useState<'login' | 'register'>('login');
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -64,19 +66,13 @@ export function LoginForm({
               ) : (
                 <span>Do you already have an Account? </span>
               )}
-              <a
-                onClick={
-                  action === 'login'
-                    ? () => setAction('register')
-                    : () => setAction('login')
-                }
-                className='cursor-pointer underline underline-offset-4'>
+              <span className='cursor-pointer underline underline-offset-4'>
                 {action === 'login' ? (
-                  <span>Sign up</span>
+                  <Link to='/register'>Sign up</Link>
                 ) : (
-                  <span>Log in</span>
+                  <Link to='/login'>Log in</Link>
                 )}
-              </a>
+              </span>
             </div>
           </div>
           <div className='flex flex-col gap-6'>
@@ -87,6 +83,7 @@ export function LoginForm({
                 type='email'
                 placeholder='m@example.com'
                 value={email}
+                autoComplete={'email'}
                 onChange={(e) => setEmail(e.target.value)}
                 required
               />
@@ -96,11 +93,17 @@ export function LoginForm({
                 type='password'
                 placeholder=''
                 value={password}
+                autoComplete='new-password'
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
             </div>
-            <Button type='submit' className='w-full'>
+            <Button
+              onClick={
+                action === 'login' ? () => handleLogin : () => handleRegister
+              }
+              type='submit'
+              className='w-full'>
               {action === 'login' ? (
                 <span>Login</span>
               ) : (
