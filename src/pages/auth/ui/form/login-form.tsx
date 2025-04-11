@@ -1,7 +1,7 @@
 import { GalleryVerticalEnd } from 'lucide-react';
 import { useState } from 'react';
 
-import { loginUser } from '@/features/auth/firebase-auth.ts';
+import { loginUser, registerUser } from '@/features/auth/firebase-auth.ts';
 
 import { cn } from '@/shared/lib/utils.ts';
 import { Button } from '@/shared/ui/button.tsx';
@@ -14,12 +14,22 @@ export function LoginForm({
 }: React.ComponentPropsWithoutRef<'div'>) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [action, setAction] = useState<'login' | 'register'>('login');
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
       await loginUser(email, password);
-      // можно сделать redirect после логина
+      window.location.href = '/';
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleRegister = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      await registerUser(email, password);
       window.location.href = '/';
     } catch (err) {
       console.log(err);
@@ -28,7 +38,7 @@ export function LoginForm({
 
   return (
     <div className={cn('flex flex-col gap-6', className)} {...props}>
-      <form onSubmit={handleLogin}>
+      <form onSubmit={action === 'login' ? handleLogin : handleRegister}>
         <div className='flex flex-col gap-6'>
           <div className='flex flex-col items-center gap-2'>
             <a className='flex flex-col items-center gap-2 font-medium'>
@@ -37,11 +47,31 @@ export function LoginForm({
               </div>
               <span className='sr-only'>Acme Inc.</span>
             </a>
-            <h1 className='text-xl font-bold'>Welcome to Task Manager</h1>
+            <h1 className='text-xl font-bold'>
+              {action === 'login' ? (
+                <span>Welcome to Task Manager</span>
+              ) : (
+                <span>Create a New Account</span>
+              )}
+            </h1>
             <div className='text-center text-sm'>
-              Don&apos;t have an account?{' '}
-              <a href='#' className='underline underline-offset-4'>
-                Sign up
+              {action === 'login' ? (
+                <span>Don&apos;t have an Account? </span>
+              ) : (
+                <span>Do you already have an Account? </span>
+              )}
+              <a
+                onClick={
+                  action === 'login'
+                    ? () => setAction('register')
+                    : () => setAction('login')
+                }
+                className='cursor-pointer underline underline-offset-4'>
+                {action === 'login' ? (
+                  <span>Sign up</span>
+                ) : (
+                  <span>Log in</span>
+                )}
               </a>
             </div>
           </div>
@@ -60,14 +90,18 @@ export function LoginForm({
               <Input
                 id='password'
                 type='password'
-                placeholder='Enter your password'
+                placeholder=''
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
             </div>
             <Button type='submit' className='w-full'>
-              Login
+              {action === 'login' ? (
+                <span>Login</span>
+              ) : (
+                <span>Create an Account</span>
+              )}
             </Button>
           </div>
           <div className='relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t after:border-border'>
