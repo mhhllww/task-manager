@@ -1,6 +1,6 @@
 import { GalleryVerticalEnd } from 'lucide-react';
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { FormEvent, useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 import {
   loginUser,
@@ -19,10 +19,18 @@ type LoginFormProps = {
 };
 
 export function LoginForm({ action, className, ...props }: LoginFormProps) {
+  const location = useLocation();
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = async (e: React.FormEvent) => {
+  const params = new URLSearchParams(location.search);
+  const redirectedEmail = params.get('email');
+  useEffect(() => {
+    if (redirectedEmail) setEmail(redirectedEmail);
+  }, [params]);
+
+  const handleLogin = async (e: FormEvent) => {
     e.preventDefault();
     try {
       await loginUser(email, password);
@@ -32,7 +40,7 @@ export function LoginForm({ action, className, ...props }: LoginFormProps) {
     }
   };
 
-  const handleRegister = async (e: React.FormEvent) => {
+  const handleRegister = async (e: FormEvent) => {
     e.preventDefault();
     try {
       await registerUser(email, password);
