@@ -34,8 +34,10 @@ function AnimatedRoute({ children }: { children: ReactNode }) {
 }
 
 function CustomRoutes() {
+  const location = useLocation();
+
   return (
-    <Routes>
+    <Routes location={location} key={location.pathname}>
       <Route path='/' element={<AnimatedRoute children={<HomePage />} />} />
       <Route
         path='/login'
