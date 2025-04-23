@@ -52,7 +52,11 @@ const cards = [
 
 export const FeaturesSection = () => {
   return (
-    <section className={'p-[128px_145px] w-full bg-gray-100'}>
+    <section
+      id={'features'}
+      className={
+        'md:p-[192px_145px] w-full bg-gray-100 flex justify-center items-center gap-50'
+      }>
       <article className={'flex flex-col items-center gap-[8px] text-center'}>
         <RoundedSpan text={'Features'} />
         <h1 className={'text-[36px] font-bold tracking-tighter'}>
