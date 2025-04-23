@@ -37,7 +37,7 @@ export const Header = () => {
   return (
     <header
       className={
-        'md:p-[0_120px] h-16 sticky top-0 border-b border-gray-300 backdrop-blur-2xl'
+        'md:p-[0_120px] h-16 border-b border-gray-300 backdrop-blur-2xl'
       }>
       <nav
         className={
