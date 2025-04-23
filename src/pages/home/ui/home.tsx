@@ -1,3 +1,5 @@
+import { Footer } from '@/widgets/footer';
+
 import {
   CtaSection,
   FaqSection,
@@ -14,6 +16,7 @@ export const Home = () => {
       <HowItWorkSection />
       <FaqSection />
       <CtaSection />
+      <Footer />
     </main>
   );
 };

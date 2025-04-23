@@ -34,7 +34,6 @@ export function LoginForm({ action, className, ...props }: LoginFormProps) {
     e.preventDefault();
     try {
       await loginUser(email, password);
-      window.location.href = '/';
     } catch (err) {
       console.log(err);
     }
@@ -44,7 +43,6 @@ export function LoginForm({ action, className, ...props }: LoginFormProps) {
     e.preventDefault();
     try {
       await registerUser(email, password);
-      window.location.href = '/';
     } catch (err) {
       console.log(err);
     }

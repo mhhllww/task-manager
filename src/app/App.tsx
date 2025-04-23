@@ -1,15 +1,16 @@
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 
-import { Footer } from '@/widgets/footer';
 import { Header } from '@/widgets/header';
 
-import { useAuth } from '@/shared/hooks/useAuth.ts';
+import { useAuth } from '@/shared/lib/hooks/useAuth.ts';
 import { AnimatedDiv } from '@/shared/ui/animated-div.tsx';
+import { Loader } from '@/shared/ui/loader.tsx';
 import { PublicRoute } from '@/shared/ui/public-route.tsx';
 
 import AuthPage from './auth/page';
 import HomePage from './home/page';
+import StoreProvider from './providers/store-provider';
 
 function CustomRoutes() {
   return (
@@ -49,40 +50,24 @@ function CustomRoutes() {
 }
 
 function LayoutWrapper() {
-  const location = useLocation();
-
   const { loading } = useAuth();
 
-  // TODO: CREATE LOADING ANIMATION
-  if (loading) return <>Загрузка!!!!</>;
-
-  const hideLayoutPaths = ['/login', '/register'];
-  const shouldHideLayout = hideLayoutPaths.includes(location.pathname);
-
+  if (loading) return <Loader />;
   return (
     <>
-      {!shouldHideLayout && (
-        <AnimatedDiv className={'sticky top-0'}>
-          <Header />
-        </AnimatedDiv>
-      )}
-
+      <Header />
       <CustomRoutes />
-
-      {!shouldHideLayout && (
-        <AnimatedDiv>
-          <Footer />
-        </AnimatedDiv>
-      )}
     </>
   );
 }
 
 const App = () => {
   return (
-    <Router>
-      <LayoutWrapper />
-    </Router>
+    <StoreProvider>
+      <Router>
+        <LayoutWrapper />
+      </Router>
+    </StoreProvider>
   );
 };
 

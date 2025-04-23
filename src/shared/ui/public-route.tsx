@@ -1,12 +1,11 @@
 import { JSX } from 'react';
 import { Navigate } from 'react-router-dom';
 
-import { useAuth } from '@/shared/hooks/useAuth';
+import { useAuth } from '@/shared/lib/hooks/useAuth';
 
 export const PublicRoute = ({ children }: { children: JSX.Element }) => {
-  const { user, loading } = useAuth();
+  const { user } = useAuth();
 
-  if (loading) return <div>Загрузка...</div>;
   if (user) return <Navigate to='/' />;
 
   return children;
