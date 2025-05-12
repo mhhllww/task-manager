@@ -1,11 +1,11 @@
-import { FOOTER_SECTION } from '@/widgets/footer/config/consts';
-
 import { Button } from '@/shared/ui/button';
+
+import { FOOTER_INFO } from '../consts/FooterInfo';
 
 export const FooterSection = () => {
   return (
     <>
-      {FOOTER_SECTION.map((item, index) => (
+      {FOOTER_INFO.map((item, index) => (
         <div key={index} className={'flex text-[14px] flex-col items-start'}>
           <h5 className={'font-bold text-[16px] mb-5'}>{item.title}</h5>
           {item.items.map((item, index) => (

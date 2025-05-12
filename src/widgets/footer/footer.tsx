@@ -1,6 +1,6 @@
 import { Logo } from '@/shared/ui/logo';
 
-import { FooterSection } from './ui';
+import { FooterSection } from './ui/footer-section';
 
 export const Footer = () => {
   return (

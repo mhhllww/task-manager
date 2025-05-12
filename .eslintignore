@@ -1,4 +1,5 @@
 node_modules
+.idea
 
 vite.config.ts
 tailwind.config.js
