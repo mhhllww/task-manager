@@ -1,7 +1,7 @@
 import { Footer } from '@/widgets/footer';
 import { Header } from '@/widgets/header';
 
-import { FadingDiv } from '@/shared/ui/fading-div.tsx';
+import { FadingDiv } from '@/shared/ui/fading-div';
 
 import {
   CtaSection,

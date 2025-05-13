@@ -1,31 +1,17 @@
 import { GalleryVerticalEnd } from 'lucide-react';
 import * as React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-import { loginUser, loginWithGoogle, registerUser } from '@/features/auth/api';
+import { loginUser, loginWithGoogle } from '@/features/auth/api';
 
-import { cn } from '@/shared/lib/utils';
-import { Button } from '@/shared/ui/button';
-import { Input } from '@/shared/ui/input';
-import { Label } from '@/shared/ui/label';
+import { cn } from '@/shared/lib/utils.ts';
+import { Button } from '@/shared/ui/button.tsx';
+import { Input } from '@/shared/ui/input.tsx';
+import { Label } from '@/shared/ui/label.tsx';
 
-type LoginFormProps = {
-  action: 'login' | 'register' | 'register-with-email';
-  className?: React.ComponentPropsWithoutRef<'div'>;
-};
-
-// TODO: SEPARATE LOGIN/REGISTER FORM && ADD ZOD SCHEMA
-export const AuthForm = ({ action, className, ...props }: LoginFormProps) => {
-  const location = useLocation();
-
+export const LoginForm = () => {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
-
-  const params = new URLSearchParams(location.search);
-  const redirectedEmail = params.get('email');
-  React.useEffect(() => {
-    if (redirectedEmail) setEmail(redirectedEmail);
-  }, [params]);
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -37,19 +23,9 @@ export const AuthForm = ({ action, className, ...props }: LoginFormProps) => {
     }
   };
 
-  const handleRegister = async (e: React.FormEvent) => {
-    e.preventDefault();
-    try {
-      await registerUser(email, password);
-      window.location.href = '/';
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
   return (
-    <div className={cn('flex flex-col gap-6', className)} {...props}>
-      <form onSubmit={action === 'login' ? handleLogin : handleRegister}>
+    <div className={cn('flex flex-col gap-6')}>
+      <form onSubmit={handleLogin}>
         <div className='flex flex-col gap-6'>
           <div className='flex flex-col items-center gap-2'>
             <a className='flex flex-col items-center gap-2 font-medium'>
@@ -59,24 +35,12 @@ export const AuthForm = ({ action, className, ...props }: LoginFormProps) => {
               <span className='sr-only'>Acme Inc.</span>
             </a>
             <h1 className='text-xl font-bold'>
-              {action === 'login' ? (
-                <span>Welcome to Task Manager</span>
-              ) : (
-                <span>Create a New Account</span>
-              )}
+              <span>Welcome to Task Manager</span>
             </h1>
             <div className='text-center text-sm'>
-              {action === 'login' ? (
-                <span>Don&apos;t have an Account? </span>
-              ) : (
-                <span>Do you already have an Account? </span>
-              )}
+              <span>Don&apos;t have an Account? </span>
               <span className='cursor-pointer underline underline-offset-4'>
-                {action === 'login' ? (
-                  <Link to='/register'>Sign up</Link>
-                ) : (
-                  <Link to='/login'>Log in</Link>
-                )}
+                <Link to='/register'>Sign up</Link>
               </span>
             </div>
           </div>
@@ -103,17 +67,8 @@ export const AuthForm = ({ action, className, ...props }: LoginFormProps) => {
                 required
               />
             </div>
-            <Button
-              onClick={
-                action === 'login' ? () => handleLogin : () => handleRegister
-              }
-              type='submit'
-              className='w-full'>
-              {action === 'login' ? (
-                <span>Login</span>
-              ) : (
-                <span>Create an Account</span>
-              )}
+            <Button onClick={handleLogin} type='submit' className='w-full'>
+              <span>Login</span>
             </Button>
           </div>
           <div className='relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t after:border-border'>

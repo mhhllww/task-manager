@@ -1,17 +1,10 @@
 import { CheckCircle, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
+import { useScrollToRef } from '@/shared/lib/hooks';
 import { Button } from '@/shared/ui/button';
 
 export const HeroSection = () => {
-  // TODO: SCROLL TO REF HOOK
-  const HIWClick = () => {
-    const element = document.getElementById('how-it-work');
-    element?.scrollIntoView({
-      behavior: 'smooth',
-    });
-  };
-
   return (
     <section className={'md:p-[192px_145px] flex items-center gap-50'}>
       <article className={'flex flex-col gap-[10px]'}>
@@ -26,7 +19,9 @@ export const HeroSection = () => {
           <Link to='/register'>
             <Button>Get Started for Free</Button>
           </Link>
-          <Button onClick={() => HIWClick()} variant={'outline'}>
+          <Button
+            onClick={() => useScrollToRef('how-it-work')}
+            variant={'outline'}>
             See How It Works
             <ChevronRight className='ml-1 h-4 w-4' />
           </Button>

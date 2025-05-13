@@ -3,32 +3,12 @@ import { Link } from 'react-router-dom';
 import { signOutUser } from '@/features/auth/api';
 import { useAuth } from '@/features/auth/lib';
 
+import { useScrollToRef } from '@/shared/lib/hooks';
 import { Button } from '@/shared/ui/button.tsx';
 import { Logo } from '@/shared/ui/logo.tsx';
 
 export const Header = () => {
   const { user } = useAuth();
-
-  const FeaturesClick = () => {
-    const element = document.getElementById('features');
-    element?.scrollIntoView({
-      behavior: 'smooth',
-    });
-  };
-
-  const HIWClick = () => {
-    const element = document.getElementById('how-it-work');
-    element?.scrollIntoView({
-      behavior: 'smooth',
-    });
-  };
-
-  const FAQClick = () => {
-    const element = document.getElementById('faq');
-    element?.scrollIntoView({
-      behavior: 'smooth',
-    });
-  };
 
   return (
     <header
@@ -41,13 +21,15 @@ export const Header = () => {
         }>
         <Logo />
         <article className={'flex gap-[50px]'}>
-          <Button variant={'link'} onClick={() => FeaturesClick()}>
+          <Button variant={'link'} onClick={() => useScrollToRef('features')}>
             Features
           </Button>
-          <Button variant={'link'} onClick={() => HIWClick()}>
+          <Button
+            variant={'link'}
+            onClick={() => useScrollToRef('how-it-work')}>
             How It Works
           </Button>
-          <Button variant={'link'} onClick={() => FAQClick()}>
+          <Button variant={'link'} onClick={() => useScrollToRef('faq')}>
             FAQ
           </Button>
         </article>
